@@ -1,0 +1,29 @@
+{
+  "validCredentials": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "invalidUsernameCredentials": [
+    {
+      "username": "invalid_user",
+      "password": "secret_sauce"
+    }
+  ],
+  "invalidPasswordCredentials": [
+    {
+      "username": "standard_user",
+      "password": "wrong_password"
+    }
+  ],
+  "lockedOutCredentials": [
+    {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    }
+  ],
+  "testData": {
+    "validUsername": "standard_user",
+    "validPassword": "secret_sauce",
+    "longUsername": "standard_user_with_a_very_long_value_used_for_boundary_testing"
+  }
+}

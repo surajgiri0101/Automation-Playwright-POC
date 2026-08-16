@@ -1,0 +1,10 @@
+{
+  "validUser": {
+    "firstName": "Alex",
+    "lastName": "Morgan",
+    "email": "alex.morgan@example.com",
+    "mobileNumber": "9876543210"
+  },
+  "invalidEmail": "alex.morgan@@example",
+  "invalidMobileNumber": "98A7654321"
+}
