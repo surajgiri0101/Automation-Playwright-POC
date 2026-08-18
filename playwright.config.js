@@ -32,8 +32,7 @@ export default defineConfig({
     },
   },
 
-  reporter: [['html', { outputFolder: 'reports', open: 'never' }]],
-
+reporter: [['html', { open: 'never' }]],
   // ✅ Browsers
   projects: [
     {
