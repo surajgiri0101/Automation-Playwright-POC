@@ -12,19 +12,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: '24'
+    - name: Build Docker image
+      run: docker build -t playwright-tests .
 
-    - name: Install dependencies
-      run: npm install   # (changed from npm ci)
-
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-
-    - name: Run tests
-      run: npx playwright test --reporter=html || true   # VERY IMPORTANT
+    - name: Run tests in container
+      run: docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-tests
 
     - name: Upload Report
       if: always()
@@ -32,3 +24,4 @@ jobs:
       with:
         name: playwright-report
         path: playwright-report/
+        retention-days: 30
