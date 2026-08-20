@@ -16,7 +16,8 @@ jobs:
       run: docker build -t playwright-tests . --no-cache
 
     - name: Run tests in container
-      run: docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-tests
+      # Ensure debug is disabled in CI so Playwright doesn't pass unsupported flags like --disable-animations
+      run: docker run --rm -e DEBUG=false -e CI=true -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-tests
 
     - name: Upload Report
       if: always()
